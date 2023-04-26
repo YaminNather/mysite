@@ -1,0 +1,64 @@
+<!-- LOG IN -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign Up</title>
+        <link type="image/png" sizes="128x128" rel="icon" href="Icons and logo/Homepage.png">
+        <!-- <link rel="Stylesheet" href="Styles/signup.css"> -->
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/signup.css') }}">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    </head>
+
+    <body class="general" background="static\images\login-bg.jpg">
+      
+      
+      <a href="Home.html" target="">
+        <img src="static\images\JourneEase-1--unscreen.gif" class="logo">
+      </a> 
+        
+        <div class="box-2">
+
+            <form method="post">
+    
+            <div class="box-1">
+                <p class="toptext">Sign Up</p>
+            </div> 
+            
+            <div class="intbox">
+              <input type="text" name="email" placeholder="Email" class="box">
+              <p class="text">Please enter a valid email address</p>
+            </div> 
+          <div class="intbox">
+            <input type="password" name="password" placeholder="Password" class="box">
+            <p class="text">Your password must be atleast 6 characters</p>
+          </div>
+
+          <div class="intbox">
+            <input type="password" placeholder="Confirm Password" class="box">
+            <p class="text">Please re-enter your password</p>
+          </div> 
+
+            {% if error %}
+            <p class="errortext">{{ error }}</p>
+            {% endif %}
+
+          <div class="submit">
+            <input type="submit" value="Sign In" class="login">
+            <p class="text">
+              Already registered? <a href="\login" class="signup">Sign in</a> now. 
+            </p>
+          </div>
+          <!-- <button class="login">Submit</button>
+          <p class="text">
+            Already registered? <a href="signin.html"><span class="signup">Sign in </span></a> now. 
+          </p> -->
+        </form>
+
+        </div>
+    </body>
+</html>

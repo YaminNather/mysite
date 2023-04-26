@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee List</title>
+    <link rel="stylesheet" href="static\styles\view.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- USER GRID RESOURCES -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body class="general">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #196273;">
+        <a class="navbar-brand" href="/dashboard"><img src="static\images\AIDIT-LOGO.png" style="height: 80px;"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+            </li>
+            
+          </ul>
+          <span class="navbar-text" style="align-self: self-end; align-items: end;">
+            <a href="/logout">Logout</a>
+          </span>
+        </div>
+      </nav>
+    <div class="header_fixed">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                <td><img src="{{ user.image }}" height="40px" width="40px"></td>
+                <td>{{ user.Email }}</td>
+                <td>
+                    <form action="{{ url_for('view_otherprofile', profile_id=user.id) }}" method="post">
+                        <span> <button type="view" class="btn btn-danger">View</button></span>
+                    </form>
+                    <a href="detailedview">{{ user.Name }}</a>
+                </td>
+                
+                </tr>
+                {% endfor %}
+                <!-- <tr>
+                    <td>1</td>
+                    <td><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"></td>
+                    <td>Abigail Mani</td>
+                    <td>abigail.mani@science.christuniversity.in</td>
+                    <td>Computer Science</td>
+                    <td><button>View</button></td>
+                </tr> -->
+
+                <!-- <tr>
+                    <td>2</td>
+                    <td><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"></td>
+                    <td>Abigail Mani</td>
+                    <td>abigail.mani@science.christuniversity.in</td>
+                    <td>Computer Science</td>
+                    <td><button>View</button></td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"></td>
+                    <td>Abigail Mani</td>
+                    <td>abigail.mani@science.christuniversity.in</td>
+                    <td>Computer Science</td>
+                    <td><button>View</button></td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"></td>
+                    <td>Abigail Mani</td>
+                    <td>abigail.mani@science.christuniversity.in</td>
+                    <td>Computer Science</td>
+                    <td><button>View</button></td>
+                </tr>
+
+                <tr>
+                    <td>5</td>
+                    <td><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"></td>
+                    <td>Abigail Mani</td>
+                    <td>abigail.mani@science.christuniversity.in</td>
+                    <td>Computer Science</td>
+                    <td><button>View</button></td>
+                </tr>
+
+                <tr>
+                    <td>6</td>
+                    <td><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"></td>
+                    <td>Abigail Mani</td>
+                    <td>abigail.mani@science.christuniversity.in</td>
+                    <td>Computer Science</td>
+                    <td><button>View</button></td>
+                </tr>
+
+                <tr>
+                    <td>7</td>
+                    <td><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"></td>
+                    <td>Abigail Mani</td>
+                    <td>abigail.mani@science.christuniversity.in</td>
+                    <td>Computer Science</td>
+                    <td><button>View</button></td>
+                </tr> -->
+                
+            </tbody>
+        </table>
+    </div>
+    </div>
+</body>
+</html>

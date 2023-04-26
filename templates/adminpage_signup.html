@@ -1,0 +1,15 @@
+<form method="POST">
+    <label for="email">EMAIL ID: </label>
+    <input type="text" name="email" id="name">
+    <label for="password">PASSWORD: </label>
+    <input type="text" name="password" id="password">
+    <label for="cpassword">RE-ENTER PASSWORD: </label>
+    <input type="text" name="cpassword" id="cpassword">
+    <input type="submit" value="PROCEED">
+</form>
+
+{% if error %}
+<p>{{ error }}</p>
+{% endif %}
+
+<a href="/adminpage">BACK TO ADMIN DASHBOARD</a>

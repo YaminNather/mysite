@@ -1,0 +1,132 @@
+<html>
+    <head>
+        <title>VIEW USERS</title>
+
+        <link rel="icon" type="image/x-icon" href="static\images\Logo-short-nobg.png">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"></script>
+
+        <script src="static\styles\profile.js"></script>
+        <script src="static\styles\view.js"></script>
+        <!-- <link rel="stylesheet" href="static\styles\profile.css"> -->
+        <link rel="stylesheet" href="static\styles\view.css">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+        <!-- USER LIST -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+    </head>
+    <body id="body-pd">
+        <header class="header" id="header" style="background-color: #ace5f2;">
+            <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+            <!-- <div class="header_img"> <img src="static\images\AIDIT-LOGO.png" alt=""> </div> -->
+        </header>
+        <div class="l-navbar" id="nav-bar">
+            <nav class="nav">
+                <div> <a href="/dashboard" class="nav_logo"><img src="static\images\Logo-short.png" width="30px"> <span class="nav_logo-name"><img src="static\images\AIDIT-LOGO.png" width="80px"></span> </a>
+                    <div class="nav_list"> 
+                        <a href="/dashboard" class="nav_link"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span> </a> 
+                        <a href="/profile" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Profile</span> </a> 
+                        <a href="/tasks" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span class="nav_name">Tasks</span> </a> 
+                        <a href="/view" class="nav_link active"> <i class='bx bx-bookmark nav_icon'></i> <span class="nav_name">Colleagues</span> </a> 
+                        <a href="/schedule" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Schedule</span> </a> 
+                        <a href="/attendance_self" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Attendance</span> </a> </div>
+                </div> <a href="/logout" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Log Out</span> </a>
+            </nav>
+        </div>
+
+        <!--Container Main start-->
+        <div class="height-100 bg-light" style="width: 1700px; align-items: center;">
+            <br><br><br><br>
+            <h2 style="color: #333;">Employee List</h2>
+
+            <br>
+
+            <div class="container mt-3 mb-4" style="margin-left: 5px;">
+              <div class="col-xl-9 mt-4 mt-lg-0">
+              <div class="row" style="width: 1200px;">
+              <div class="col-md-12">
+              <div class="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm">
+
+                
+                <div class="form">
+                    <form method="get" class="form">
+                        <i class="fa fa-search"></i>
+                        <input type="text" class="form-control form-input" name="search" placeholder="Search by name...">
+                        <!-- <input type="text" name="search" placeholder="Search by name"> -->
+                        <span class="left-pan"><input type="submit" value="Search" class="submit-btn"></span>
+                    </form>
+                  </div>
+              <!-- <form method="get">
+                
+                  <input type="text" name="search" placeholder="Search by name">
+                  <button type="submit">Search</button>
+              </form> -->
+              
+              <a href="{{ url_for('view') }}" class="btn btn-primary" style="background-color: #196273; margin-left: 45%;">View All</a>
+
+              <table class="table manage-candidates-top mb-0">
+                <thead>
+                  <tr>
+                  <th>Name</th>
+                  <th class="text-center">Email</th>
+                  <th class="action text-right">LinkedIn</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                {% for user in users %}
+                      <tr class="candidates-list">
+                        <td class="title">
+                        <div class="thumb">
+                        <img class="img-fluid" src="{{ user.image }}" alt="">
+                        </div>
+                        <div class="candidate-list-details">
+                        <div class="candidate-list-info">
+                        <div class="candidate-list-title">
+                        <h5 class="mb-0">{{ user.Name }}</h5>
+                        </div>
+                        <div class="candidate-list-option">
+                        <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt pr-1"></i>India</li>
+                        <!-- <li><i class="fas fa-map-marker-alt pr-1"></i>{{ user.Email }}</li> -->
+                        </ul>
+                        </div>
+                        </div>
+                        </div>
+                        </td>
+                        <td class="candidate-list-favourite-time text-center">
+                        <!-- <a class="candidate-list-favourite order-2 text-danger" href="#"><i class="fas fa-heart"></i></a>
+                        <span class="candidate-list-time order-1">Shortlisted</span> -->
+                        <a href="mailto:{{ user.Email }}"> {{ user.Email }}</a>
+                        </td>
+                        <td>
+                        <!-- <ul class="list-unstyled mb-0 d-flex justify-content-end">
+                        <li><a href="#" class="text-primary" data-toggle="tooltip" title="" data-original-title="view"><i class="far fa-eye"></i></a></li>
+                        <li><a href="#" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="fas fa-pencil-alt"></i></a></li>
+                        <li><a href="#" class="text-danger" data-toggle="tooltip" title="" data-original-title="Delete"><i class="far fa-trash-alt"></i></a></li>
+                        </ul> -->
+                        <a href="{{ user.LinkedIn }}">{{ user.LinkedIn }}</a>
+                        </td>
+                        </tr>
+                {% endfor %}
+              </tbody>
+              </table>
+
+              
+
+              </div>
+              </div>  
+              </div>
+              </div>
+            </div>
+
+            
+    </body>
+</html>

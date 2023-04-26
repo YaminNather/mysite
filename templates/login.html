@@ -1,0 +1,13 @@
+<!-- login.html -->
+{% if error %}
+<p>{{ error }}</p>
+{% endif %}
+<h1>LOG IN</h1>
+<form method="post">
+    <label for="email">Email:</label>
+    <input type="email" name="email" required>
+    <label for="password">Password:</label>
+    <input type="password" name="password" required>
+    <input type="submit" value="Login">
+</form>
+

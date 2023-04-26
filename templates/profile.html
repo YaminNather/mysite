@@ -1,0 +1,14 @@
+<!-- profile.html -->
+
+<h1>NAME: {{ user.Name }}</h1>
+EMAIL: {{ user.Email }}
+IMAGE: <img src="{{ user.image }}" alt="">
+
+
+{% if error %}
+<p>{{ error }}</p>
+{% endif %}
+<br>
+<a href="/attendance_self"></a>
+<br>
+<a href="/dashboard">Back to Dashboard</a>

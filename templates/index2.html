@@ -1,0 +1,25 @@
+<html>
+
+    <head>  
+        <title>home</title> 
+        <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}"> 
+    </head>  
+
+    <form action="/" method="post">
+
+        <label>NAME: </label>
+        <input type="text" name="Name">
+        <label>PHONE NUMBER: </label>
+        <input type="number" name="PhNo">
+        <input type="submit"/>  
+    </form>
+
+    <form action='/resultpage' method="get">
+        <label>ENTER NAME: </label>
+        <input type="text" name="Name">
+        <input type="submit">
+    </form>
+
+    <p align="center"><a href=display ><button class=grey style="height:75px;width:150px">VIEW DATA</button></a></p>
+
+</html>

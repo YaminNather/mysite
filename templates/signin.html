@@ -1,0 +1,54 @@
+<!-- SIGN IN -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign In</title>
+        <link rel="icon" type="image/x-icon" href="static\images\Logo-short-nobg.png">
+        
+        <!-- <link type="image/png" sizes="128x128" rel="icon" href="Icons and logo/Homepage.png"> -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/signin.css') }}">
+        <!-- <link rel="Stylesheet" href="static\styles\signin.css"> -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    </head>
+    <body class="general" background="static\images\sign-in_bg.jpg">
+        
+        
+        <a href="home.html"><img src="static\images\JourneEase-1--unscreen.gif" class="logo"></a>
+        <div class="box-2">
+            
+            <form method="post">
+              <div class="box-1">
+                <p class="toptext">Sign In</p>
+            </div> 
+            
+            <div class="intbox">
+              <input type="text" id="email" name="email" placeholder="Email" class="box">
+              <p class="text">Please enter a valid email address</p>
+            </div> 
+          <div class="intbox">
+            <input type="password" id="pswd" name="password" placeholder="Password" class="box">
+            <p class="text">Your password must be atleast 6 characters</p>
+          </div>
+
+           {% if error %}
+              <p class="errortext">{{ error }}</p>
+            {% endif %}
+          
+          <div class="submit">
+            <input type="submit" value="Login" class="login">
+
+            <!-- <p class="text">
+              New here? <a class="signup" href="\signup">Sign up</span></a> now
+            </p> -->
+          </div>
+          
+          
+          
+            </form>
+
+        </div>
+    </body>
+</html>

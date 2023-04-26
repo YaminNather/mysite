@@ -1,0 +1,18 @@
+<table border="2">
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>Date And Time</th>
+        <th>Completed</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for task in tasks %}
+      <tr>
+        <td>{{ task.get('Task') }}</td>
+        <td>{{ task.get('Date') }}</td>
+        <td>{{ task.get('Completed') }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>  

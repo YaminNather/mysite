@@ -1,0 +1,31 @@
+.grid-container {
+display: grid;
+grid-template-columns: auto auto auto auto;
+background-color: #ace5f2;
+padding: 10px;
+}
+
+.grid-item {
+background-color: rgba(255, 255, 255, 0.8);
+/* border: 1px solid rgba(0, 0, 0, 0.8); */
+font-family:'Roboto';
+font-weight: 500;
+color: #332211;
+padding: 20px;
+font-size: 17px;
+text-align: center;
+}
+.icon-p{
+    height: 100px;
+    width: 100px;
+    border-radius: 30px;
+}
+.icon-text{
+    color: #332211;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.icon-text:hover{
+    color: #d93a2b;
+    text-decoration: none;
+    transition: 0.4s;
+}

@@ -1,0 +1,38 @@
+.grey-bg {  
+    background-color: #196273;
+}
+
+.word{
+    color: #48556d;
+    transition: 0.4s ease-in-out;
+}
+
+.usernametext{
+    color: white;
+    transition: 0.4s ease-in-out;
+}
+
+.usernametext:hover{
+    color: #d93a2b;
+}
+
+i{
+    transition: 0.4s ease-in;
+}
+
+i:hover{
+    transform: scale(1.2);
+}
+
+.text-uppercase a{
+    color: white;
+    transition: 0.4s ease-out;
+    font-size: 24px;
+    font-weight: 700
+}
+
+.text-uppercase a:hover{
+    background-color: #d93a2b;
+    padding: 10px;
+    color: white;
+}

@@ -1,0 +1,113 @@
+<html>
+    <head>
+        <title>TASKS</title>
+
+        <link rel="icon" type="image/x-icon" href="static\images\Logo-short-nobg.png">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"></script>
+
+        <script src="static\styles\tasks.js"></script>
+        <link rel="stylesheet" href="static\styles\tasks.css">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+        <!-- TABLE RESOURCES -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+    </head>
+    <body id="body-pd">
+        <header class="header" id="header" style="background-color: #ace5f2;">
+            <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+            <!-- <div class="header_img"> <img src="static\images\AIDIT-LOGO.png" alt=""> </div> -->
+        </header>
+        <div class="l-navbar" id="nav-bar">
+            <nav class="nav">
+                <div> <a href="/dashboard" class="nav_logo"><img src="static\images\Logo-short.png" width="30px"> <span class="nav_logo-name"><img src="static\images\AIDIT-LOGO.png" width="80px"></span> </a>
+                    <div class="nav_list"> 
+                        <a href="/dashboard" class="nav_link"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span> </a> 
+                        <a href="/profile" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Profile</span> </a> 
+                        <a href="/tasks" class="nav_link active"> <i class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Tasks</span> </a> 
+                        <a href="/view" class="nav_link"> <i class='bx bx-bookmark nav_icon'></i> <span class="nav_name">Colleagues</span> </a> 
+                        <a href="/schedule" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span class="nav_name">Schedule</span> </a> 
+                        <a href="/attendance_self" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Attendance</span> </a> </div>
+                </div> <a href="/logout" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Log Out</span> </a>
+            </nav>
+        </div>
+
+        <!--Container Main start-->
+        <div class="height-100 bg-light">
+            <br><br><br><br>
+            <h2 style="color: #333;">My Tasks</h2>
+            <br>
+            <div class="header2">
+                <!-- <h2 style="margin:5px">My To Do List</h2> -->
+                <form method="POST">                   
+                    <input name="Task" type="text" id="Task" placeholder="Enter Task here..." style="margin: 2px;">
+                    <input name="Datetime" id="Datetime" type="datetime-local" style="margin: 2px;">
+                    <br>
+                    <input type="submit" class="addBtn">                    
+                </form>
+                <div class="table-responsive">
+                    <div class="container rounded mt-5 bg-white p-md-5">
+                        <div class="h2 font-weight-bold">Meetings</div>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Task</th>                    
+                                        <th scope="col">Date and Time</th>                    
+                                        <th scope="col">Completed</th>  
+                                        <th scope="col">Remove</th>                    
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for task in tasks %}
+                                    <tr class="bg-blue">            
+                                        <!-- <td class="pt-2">
+                                            <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="rounded-circle" alt=""> 
+                                            <div class="pl-lg-5 pl-md-3 pl-1 name">Emilia Kollette</div>
+                                        </td>                 -->
+                                        <td class="pt-2">{{ task.get('Task') }}</td>
+                                        <td class="pt-3 mt-1">{{ task.get('Date') }}</td>
+
+                                        {% if task.get('Completed') %}
+                                            <td class="pt-3"><span class="fa fa-check pl-3"></span></td>
+
+                                        {% else %}
+                                            <!-- <td class="pt-3"><span class="fa fa-times pl-3"></span></td> -->
+                                            <td><input type="checkbox" class="form-check-input" id="{{ task.id }}"></td>
+
+                                        {% endif %}
+
+                                        <td class="pt-3">
+                                            
+                                            <form action="{{ url_for('delete_task', task_id=task.id) }}" method="post">
+                                                <span> <button type="submit" class="btn btn-danger">Remove</button></span>
+                                            </form>
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr id="spacing-row">
+                                        <td></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </body>
+</html>
